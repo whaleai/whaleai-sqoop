@@ -1,33 +1,56 @@
-# whaleai-sqoop
-> ## 提供sqoop自动化部署方案　WhaleAI 专注人工智能/大数据　
+# whaleai-hadoop  
+
+## 提供hadoop自动化部署方案,WhaleAI专注人工智能/大数据
+##  **♡[Fork](https://github.com/wangxiaoleiAI/whaleai-sqoop)** **☆[Star]((https://github.com/wangxiaoleiAI/whaleai-sqoop)**
+
+## <font color=#ff0000 > MORE ?   **[whaleai](https://github.com/wangxiaoleiAI/whaleai-sqoop)** </font>
+
+## Installation
+
+1.下载sqoop安装源码
+```
+git clone https://github.com/wangxiaoleiAI/whaleai-sqoop.git
+```
+2.下载sqoop2压缩文件并放置在目录中，修改whaleai-sqoop中```SQOOP_VERSION```字段（默认1.99.7-bin-hadoop200）;
+
+3.安装，执行脚本 . whaleai-sqoop.sh -i ;
+  验证，是否成功输入```jps``` 如下SqoopJettyServer，即安装启动成功。
+
+```
+xiaolei@wang:~/Projects/whaleai/whaleai-sqoop$ jps
+3984 Jps
+3925 SqoopJettyServer
+```
+## Document
+- Debian/ubuntu 16.04  17.04
+- hadoop2 版本　hadoop-2.7.3 hadoop-2.8.0 稳定支持
+- hadoop3 alpha 不稳定支持
+- Sqoop2
 
 
- > 已支持版本 sqoop2
+USAGE:  ```. whaleai-sqoop.sh [options]```
 
- This script installs sqoop  with basic data, log, and pid directories.
+OPTIONS:
+```
+  -i, --install　        伪分布式安装部署hadoop3
 
- > USAGE: ``` . whaleai-sqoop.sh [options]```
+  -r, --remove           卸载hadoop3
 
- ```
- OPTIONS:
-    -i, --install　        伪分布式安装部署sqoop
+  -h, --help             Show this message.
+```
+## EXAMPLES:
+- sqoop2 install:
 
-    -r, --remove           卸载sqoop
+```
+. whaleai-sqoop.sh -i　
 
-    -h, --help             Show this message.
- ```
+. whaleai-sqoop.sh --install
+```
 
- EXAMPLES:
-   如何安装？sqoop install:
- ```
- 		 . whaleai-sqoop.sh -i　
 
- 		 Or . install-sqoop.sh --install
- ```
-   如何卸载？sqoop remove:
+- sqoop2 remove:
 
- ```
- 		 . whaleai-sqoop.sh -r
-
- 		 Or . install-sqoop.sh --remove
- ```
+```
+. whaleai-sqoop.sh -r
+. whaleai-sqoop.sh --remove
+```
