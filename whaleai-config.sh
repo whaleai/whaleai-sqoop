@@ -104,6 +104,6 @@ Author="#!/bin/sh
 SqoopEnv="
 export SQOOP_HOME=/opt/sqoop-$SQOOP_VERSION
 export PATH=\$SQOOP_HOME/bin:\$PATH
-eexport SQOOP_SERVER_EXTRA_LIB=\$SQOOP_HOME/lib
+export SQOOP_SERVER_EXTRA_LIB=\$SQOOP_HOME/lib
 
 "
