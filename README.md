@@ -1,9 +1,9 @@
-# whaleai-hadoop  
+# whaleai-sqoop
 
-## 提供hadoop自动化部署方案,WhaleAI专注人工智能/大数据
+## 提供hsqoop自动化部署方案,WhaleAI专注人工智能/大数据
 ##  **♡[Fork](https://github.com/wangxiaoleiAI/whaleai-sqoop)** **☆[Star](https://github.com/wangxiaoleiAI/whaleai-sqoop)**
 
-##  MORE ?   **[whaleai](https://github.com/wangxiaoleiAI/whaleai-sqoop)**
+##  MORE ?   **[whaleai](https://github.com/whaleai)**
 
 ## Installation
 
