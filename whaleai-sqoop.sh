@@ -43,9 +43,12 @@ if [[ ! -d $HADOOP_HOME ]]; then
 fi
 
 #解压
-echo "sqoop-$SQOOP_VERSION　伪分布式正在自动安装部署..."
+echo "sqoop-$SQOOP_VERSION　伪分布式正在自动安装部署...
+"
 tar -zxf sqoop-$SQOOP_VERSION.tar.gz
-echo "sqoop-$SQOOP_VERSION　>>解压完成"
+echo "
+sqoop-$SQOOP_VERSION　>>解压完成
+"
 sudo mv  sqoop-$SQOOP_VERSION /opt/
 #配置sqoop的配置文件
 user=`whoami`
@@ -54,31 +57,38 @@ put_config --file $HADOOP_HOME/etc/hadoop/mapred-site.xml --property mapreduce.j
 put_config --file $HADOOP_HOME/etc/hadoop/core-site.xml --property hadoop.proxyuser.$user.hosts --value "*"
 put_config --file $HADOOP_HOME/etc/hadoop/core-site.xml --property hadoop.proxyuser.$user.groups --value "*"
 
-echo "sqoop-$SQOOP_VERSION　>>xml文件配置完成"
+echo "
+sqoop-$SQOOP_VERSION　>>xml文件配置完成
+"
 #创建变量文件
 echo "${Author} ${SqoopEnv}">sqoop-$SQOOP_VERSION.sh
 sudo mv  sqoop-$SQOOP_VERSION.sh /etc/profile.d
 source /etc/profile
 cd $SQOOP_HOME
-echo "sqoop-$SQOOP_VERSION　>>变量配置完成 "
-echo "sqoop-$SQOOP_VERSION　>> 元数据库初始中... "
+echo "
+sqoop-$SQOOP_VERSION　>>变量配置完成
+ "
+echo "
+sqoop-$SQOOP_VERSION　>> 元数据库初始中...
+"
 sqoop2-tool upgrade
-echo "sqoop-$SQOOP_VERSION　>> 初始完成 "
+echo "
+sqoop-$SQOOP_VERSION　>> 初始完成
+"
 sqoop2-tool verify
-echo "sqoop-$SQOOP_VERSION　>> 验证成功 "
+echo "
+sqoop-$SQOOP_VERSION　>> 验证成功
+ "
 
 sqoop2-server start
 cd -
 echo "sqoop-$SQOOP_VERSION　>>服务启动完成"
 
 echo "sqoop-$SQOOP_VERSION　>>开启成功...服务已经启动...
+
 sqoop2-server stop
+
 sqoop2-shell
-sqoop Web UI
-
-  Master - http://localhost:16010
-
-  RegionServer - http://localhost:16301/  或者　16030
 
 耗时 : $(($(date +%s) - $begin_time)) S
 
@@ -112,7 +122,7 @@ cat << EOF
 已支持版本　sqoop-1.3.1
 This script installs sqoop  with basic data, log, and pid directories.
 
-USAGE:  whaleai-sqoop.sh [options]
+USAGE:  . whaleai-sqoop/whaleai-sqoop.sh [options]
 OPTIONS:
    -i, --install　        伪分布式安装部署sqoop
 
@@ -121,17 +131,16 @@ OPTIONS:
    -h, --help             Show this message.
 
 EXAMPLES:
-  如何安装？sqoop install:
+sqoop2 install:
 
-		 . whaleai-sqoop.sh -i　
+  . whaleai-sqoop.sh -i　
+  . whaleai-sqoop.sh --install
 
-		 Or . install-sqoop.sh --install
+sqoop2 remove:
 
-  如何卸载？sqoop remove:
+  . whaleai-sqoop.sh -r
+  . whaleai-sqoop.sh --remove
 
-		 . whaleai-sqoop.sh -r
-
-		 Or . install-sqoop.sh --remove
 EOF
 }
 
